@@ -17,6 +17,12 @@ export default class TodosListItem extends React.Component {
 			cursor: 'pointer'
 		};
 
+		if (this.state.isEditing) {
+			return {
+
+			};
+		}
+
 		return (
 			<td style={taskStyle}
 				onClick={this.props.toggleTask.bind(this, task)}
@@ -30,7 +36,7 @@ export default class TodosListItem extends React.Component {
 		if (this.state.isEditing) {
 			return (
 				<td>
-					<button>Save</button>
+					<button onClick={this.onSaveClick.bind(this)}>Save</button>
 					<button onClick={this.onCancelClick.bind(this)}>Cancel</button>
 				</td>
 			);
@@ -60,7 +66,11 @@ export default class TodosListItem extends React.Component {
 	onCancelClick() {
 		this.setState({ isEditing: false});
 	}
+
+	onSaveClick(event) {
+
+	}
 }
 
 
-// me quede en 36:06 video
+// me quede en 42:00 video
