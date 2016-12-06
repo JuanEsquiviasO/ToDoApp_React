@@ -18,9 +18,13 @@ export default class TodosListItem extends React.Component {
 		};
 
 		if (this.state.isEditing) {
-			return {
-
-			};
+			return (
+				<td>
+					<form onSubmit={this.onSaveClick.bind(this)}>
+						<input type="text" defaultValue={task} ref="editInput" />					
+					</form>
+				</td>
+			);
 		}
 
 		return (
@@ -68,7 +72,12 @@ export default class TodosListItem extends React.Component {
 	}
 
 	onSaveClick(event) {
+		event.preventDefault();
 
+		const oldTask = this.props.task;
+		const newTask = this.refs.editInput.value;
+		this.props.saveTask(oldTask, newTask);
+		this.setState({ isEditing: false });
 	}
 }
 

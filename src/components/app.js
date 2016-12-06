@@ -57,4 +57,8 @@ export default class App extends React.Component {
 		this.setState({ todos: this.state.todos });
 	}
 
+	deleteTask(taskToDelete) {
+		
+	}
+
 }
